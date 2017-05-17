@@ -1,0 +1,6 @@
+INSERT INTO public."HotGirl"(name, image, "like", dislike)
+	VALUES (name: 'Elly Tran', image: '2.jpeg', like: 1, dislike: 3),
+  (name: 'Ngoc Trinh', image: '3.jpg', like: 2, dislike: 3 ),
+  (id: 4, name: 'Chipu', image: '4.png', like: 4, dislike: 3 ),
+  (id: 5, name: 'Midu', image: '5.png', like: 12, dislike: 3 ),
+  (name: 'Mai Phuong Thuy', image: '1.jpg', like: 97, dislike: 8 )
