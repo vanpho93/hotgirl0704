@@ -13,6 +13,16 @@ app.get('/show/:id', (req, res) => {
     const { id } = req.params;
     const girl = new HotGirl(id);
     girl.getHotGirl((err, result) => {
-        res.render('show', result);
+        if (result) return res.render('show', result);
+        res.redirect('/show/1');
+    });
+});
+
+app.get('/like/:id', (req, res) => {
+    const { id } = req.params;
+    const girl = new HotGirl(id);
+    girl.likeGirl(err => {
+        if (err) return res.send(err);
+        res.redirect(`/show/${id}`);
     });
 });

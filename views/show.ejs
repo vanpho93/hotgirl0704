@@ -17,14 +17,14 @@
         <div>
             <h3><%= name %></h3>
             <div class="div-control">
-                <a href="#">Trở lại</a>
-                <a href="#">Tiếp</a>
+                <a href="/show/<%= id - 1 %>">Trở lại</a>
+                <a href="/show/<%= id + 1 %>">Tiếp</a>
             </div>
             <hr />
-            <img src="../<%= image %>" alt="">
+            <img src="../<%= image %>" width="300" alt="">
             <hr />
             <div class="div-control">
-                <a href="#"><%= like %> Like</a>
+                <a href="/like/<%= id %>"><%= like %> Like</a>
                 <a href="#"><%= dislike %> Dislike</a>
             </div>
         </div>
