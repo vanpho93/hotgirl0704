@@ -27,6 +27,12 @@ app.get('/like/:id', (req, res) => {
     });
 });
 
-app.get('/views', (req, res) => {
-    res.send(Math.random() + '');
+app.get('/girl/:id', (req, res) => {
+    const { id } = req.params;
+    const girl = new HotGirl(id);
+    girl.getHotGirl((err, result) => {
+        if (result) return res.send(result);
+        res.redirect('/like/1');
+    });
 });
+

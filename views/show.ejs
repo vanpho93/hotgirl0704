@@ -17,13 +17,13 @@
     </head>
     <body>
         <div>
-            <h3><%= name %></h3>
+            <h3 id="h3-name"><%= name %></h3>
             <div class="div-control">
                 <a href="/show/<%= id - 1 %>">Trở lại</a>
-                <a href="/show/<%= id + 1 %>">Tiếp</a>
+                <a href="/show/<%= id + 1 %>" id="a-next">Tiếp</a>
             </div>
             <hr />
-            <img src="<%= image %>" width="300" alt="">
+            <img src="<%= image %>" width="300" alt="" id="img-avatar">
             <hr />
             <div class="div-control">
                 <a href="/like/<%= id %>" id="a-like"><%= like %> Like</a>
@@ -34,15 +34,18 @@
         <br />
     </body>
     <script>
-        // $('#a-fetch').click((e) => {
-        //     e.preventDefault();
-        //     $.get('http://localhost:3000/views', data => console.log(data))
-        // });
-
         $('#a-like').click((e) => {
             e.preventDefault();
             $.get('/like/<%= id %>', data => {
                 $('#a-like').html(data + ' Like')
+            });
+        });
+
+        $('#a-next').click((e) => {
+            e.preventDefault();
+            $.get('/girl/<%= id + 1 %>', data => {
+                $('#h3-name').html(data.name);
+                $('#img-avatar').attr('src', data.image);
             });
         });
     </script>
