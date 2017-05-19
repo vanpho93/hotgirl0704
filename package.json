@@ -5,6 +5,9 @@
   "repository": "https://github.com/vanpho93/hotgirl0704.git",
   "author": "Van Pho Nguyen <vanpho02@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node index"
+  },
   "dependencies": {
     "ejs": "^2.5.6",
     "express": "^4.15.2",

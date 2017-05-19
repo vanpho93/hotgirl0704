@@ -41,9 +41,12 @@
             });
         });
 
+        let currentId = <%= id %>;
+
         $('#a-next').click((e) => {
             e.preventDefault();
-            $.get('/girl/<%= id + 1 %>', data => {
+            $.get('/girl/' + (currentId + 1), data => {
+                currentId = data.id;
                 $('#h3-name').html(data.name);
                 $('#img-avatar').attr('src', data.image);
             });

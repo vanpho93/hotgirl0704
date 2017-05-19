@@ -2,7 +2,7 @@ const express = require('express');
 const HotGirl = require('./HotGirl');
 
 const app = express();
-app.listen(3000, () => console.log('Server started'));
+app.listen(process.env.PORT || 3000, () => console.log('Server started'));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -32,7 +32,7 @@ app.get('/girl/:id', (req, res) => {
     const girl = new HotGirl(id);
     girl.getHotGirl((err, result) => {
         if (result) return res.send(result);
-        res.redirect('/like/1');
+        res.redirect('/girl/1');
     });
 });
 
