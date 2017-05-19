@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <base href="../">
         <title>Khoa Pham</title>
         <style>
             hr {
@@ -12,6 +13,7 @@
                 justify-content: space-between
             }
         </style>
+        <script src="jquery.js"></script>
     </head>
     <body>
         <div>
@@ -21,12 +23,27 @@
                 <a href="/show/<%= id + 1 %>">Tiếp</a>
             </div>
             <hr />
-            <img src="../<%= image %>" width="300" alt="">
+            <img src="<%= image %>" width="300" alt="">
             <hr />
             <div class="div-control">
-                <a href="/like/<%= id %>"><%= like %> Like</a>
+                <a href="/like/<%= id %>" id="a-like"><%= like %> Like</a>
                 <a href="#"><%= dislike %> Dislike</a>
             </div>
         </div>
+        <a id="a-fetch" href="#">FETCH DATA</a>
+        <br />
     </body>
+    <script>
+        // $('#a-fetch').click((e) => {
+        //     e.preventDefault();
+        //     $.get('http://localhost:3000/views', data => console.log(data))
+        // });
+
+        $('#a-like').click((e) => {
+            e.preventDefault();
+            $.get('/like/<%= id %>', data => {
+                $('#a-like').html(data + ' Like')
+            });
+        });
+    </script>
 </html>

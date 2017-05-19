@@ -18,12 +18,13 @@ class HotGirl {
     }
 
     likeGirl(cb) {
-        const sql = 'UPDATE public."HotGirl" SET "like"="like" + 1 WHERE id = $1';
-        queryDB(sql, [this.id], (err) => {
+        const sql = 'UPDATE public."HotGirl" SET "like"="like" + 1 WHERE id = $1 RETURNING "like"';
+        queryDB(sql, [this.id], (err, result) => {
             if (err) return cb(err);
-            cb();
+            cb(undefined, result.rows[0].like);
         });
     }
 }
 
 module.exports = HotGirl;
+

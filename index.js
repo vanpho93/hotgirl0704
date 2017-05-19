@@ -21,8 +21,12 @@ app.get('/show/:id', (req, res) => {
 app.get('/like/:id', (req, res) => {
     const { id } = req.params;
     const girl = new HotGirl(id);
-    girl.likeGirl(err => {
+    girl.likeGirl((err, like) => {
         if (err) return res.send(err);
-        res.redirect(`/show/${id}`);
+        res.send(like.toString());
     });
+});
+
+app.get('/views', (req, res) => {
+    res.send(Math.random() + '');
 });
